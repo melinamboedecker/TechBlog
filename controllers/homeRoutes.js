@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -9,14 +9,18 @@ router.get('/', async (req, res) => {
     const postData = await Post.findAll({
       include: [
         {
-          model: Post,
-          attributes: ['title'],
+          model: User,
+          attributes: ['name'],
         },
       ],
     });
+    
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
+    console.log('POSTS POSTS POSTS ')
+    console.log(posts)
+
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
