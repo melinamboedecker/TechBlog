@@ -1,0 +1,17 @@
+[
+    {
+      "text": "comment about something",
+      "user_id": "1",
+      "post_id": "2"
+    },
+    {
+        "text": "comment about something else",
+        "user_id": "2",
+        "post_id": "2"
+      },
+      {
+        "text": "another comment about something",
+        "user_id": "1",
+        "post_id": "1"
+      }
+  ]
