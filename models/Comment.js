@@ -13,7 +13,7 @@ Comment.init(
     },
     text: {
       type: DataTypes.STRING(1500),
-      
+
     },
     date_created: {
       type: DataTypes.DATE,
