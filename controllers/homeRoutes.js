@@ -33,32 +33,32 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/posts/try', async (req, res) => {
-  try {
-    console.log('kjhkjhlkjhkjh')
-    const postData = await Comment.findAll( {
-        include: [
-          // {
-          //     model: Post,
-          //     attributes: ['title'],
-          // }
-        ]
-    });
+// router.get('/posts/try', async (req, res) => {
+//   try {
+//     console.log('kjhkjhlkjhkjh')
+//     const postData = await Comment.findAll( {
+//         include: [
+//           // {
+//           //     model: Post,
+//           //     attributes: ['title'],
+//           // }
+//         ]
+//     });
 
-    console.log("***************")
-    console.log(postData)
+//     console.log("***************")
+//     console.log(postData)
 
-    const post = postData.get({ plain: true });
-    console.log('post ******************* post')
-    console.log(post)
-    res.render('post', {
-            ...post,
-            logged_in: req.session.logged_in
-          }); 
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const post = postData.get({ plain: true });
+//     console.log('post ******************* post')
+//     console.log(post)
+//     res.render('post', {
+//             ...post,
+//             logged_in: req.session.logged_in
+//           }); 
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 router.get('/posts/:id', async (req, res) => {
