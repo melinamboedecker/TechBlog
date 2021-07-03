@@ -61,38 +61,38 @@ router.get('/posts/try', async (req, res) => {
 });
 
 
-// router.get('/posts/:id', async (req, res) => {
-//   try {
-//     const postData = await Post.findByPk(req.params.id, {
-//             include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//         {
-//             model: Comment,
-//             attributes: ['text'],
-//             include: {
-//               model: User,
-//               attributes: ['name']
-//             }
-//         },
-//       ],
-//     })
+router.get('/posts/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+            include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+            model: Comment,
+            attributes: ['text', 'user_name', 'date_created'],
+            // include: {
+            //   model: User,
+            //   attributes: ['name']
+            // }
+        },
+      ],
+    })
 
-//     console.log(postData);
-//     const post = postData.get({ plain: true });
-//     console.log("WWWWWWWWWWWWWWW")
-//     console.log(post)
+    console.log(postData);
+    const post = postData.get({ plain: true });
+    console.log("WWWWWWWWWWWWWWW")
+    console.log(post)
 
-//     res.render('post', {
-//       ...post,
-//       logged_in: req.session.logged_in
-//     }); 
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render('post', {
+      ...post,
+      logged_in: req.session.logged_in
+    }); 
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // router.get('/posts/:id', async (req, res) => {
 //   try {
