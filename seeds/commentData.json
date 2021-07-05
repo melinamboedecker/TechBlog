@@ -1,17 +1,17 @@
 [
     {
-      "text": "comment about something",
-      "user_name": "Spekles",
-      "post_id": "2"
+      "content": "comment about something",
+      "user_id": 1,
+      "post_id": 2
     },
     {
-        "text": "comment about something else",
-        "user_name": "User1",
-        "post_id": "2"
+        "content": "comment about something else",
+        "user_id": 1,
+        "post_id": 2
       },
       {
-        "text": "another comment about something",
-        "user_name": "User3",
-        "post_id": "1"
+        "content": "another comment about something",
+        "user_id": 2,
+        "post_id": 1
       }
   ] 

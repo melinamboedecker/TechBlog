@@ -11,7 +11,7 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    text: {
+    content: {
       type: DataTypes.STRING(1500),
 
     },
@@ -20,17 +20,21 @@ Comment.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    user_name: {
-      type: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
     },
     post_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'post',
-          key: 'id',
-        },
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'post',
+        key: 'id',
       },
+    }, 
   },
   {
     sequelize,

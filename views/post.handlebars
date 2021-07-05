@@ -14,10 +14,13 @@
     <form class="form new-comment-form">
       <div class="form-group">
         <label for="comment-content">Add a comment:</label>
-        <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
+        <textarea class="form-input" id="comment-content" post_id = {{id}} name="comment-content"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>
   </div>
+
+
+  <script src="/js/post.js"></script>

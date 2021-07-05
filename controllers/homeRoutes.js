@@ -71,7 +71,7 @@ router.get('/posts/:id', async (req, res) => {
         },
         {
             model: Comment,
-            attributes: ['text', 'user_name', 'date_created'],
+            attributes: ['content', 'user_id', 'date_created'],
             // include: {
             //   model: User,
             //   attributes: ['name']
@@ -101,7 +101,7 @@ router.get('/posts/:id', async (req, res) => {
 //         {
 //           model: Comment,
 //           required: false,
-//           attributes: ['text'],
+//           attributes: ['content'],
 //           include: [
 //             {
 //               model: User,
@@ -147,7 +147,7 @@ router.get('/posts/:id', async (req, res) => {
 //           },
 //           {
 //               model: Comment,
-//               attributes: ['text']
+//               attributes: ['content']
 //           },
 //         ],
 //       });
