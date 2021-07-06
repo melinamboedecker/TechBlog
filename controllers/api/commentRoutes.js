@@ -2,12 +2,33 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+let userName;
+
+router.get('/:id', async (req, res) => {
+  try {
+    const commentUserData = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        }
+      ]
+      
+    })
+    console.log('COMMENT GET ROUTE')
+    console.log(commentUserData.user.name)
+    userName = commentUserData.user.name
+    console.log(userName)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {
     console.log('IIIIIIIIIIIIII')
     console.log(req.body)
-    
+    console.log(userName)
   
     const newComment = await Comment.create({
       ...req.body,
@@ -15,6 +36,7 @@ router.post('/', withAuth, async (req, res) => {
       //figure out how to get user_name 
       // user_name: userName,
       post_id: req.body.postId,
+      // user_name: userName
     });
     console.log('NEW NEW NEW ')
     console.log(newComment)   

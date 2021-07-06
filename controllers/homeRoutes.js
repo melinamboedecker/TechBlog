@@ -60,8 +60,8 @@ router.get('/', async (req, res) => {
 //   }
 // });
 
-
-router.get('/posts/:id', async (req, res) => {
+//when individual post is selected
+router.get('/posts/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -78,15 +78,31 @@ router.get('/posts/:id', async (req, res) => {
             // }
         },
       ],
-    })
+    });
+
+    // const userData = await User.findByPk(req.params.id, {
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ['name'],
+    //     },
+    //     {
+    //       model: Comment,
+    //       attributes: ['content', 'user_id', 'date_created'],
+    //   },
+    //   ],
+    // })
 
     console.log(postData);
     const post = postData.get({ plain: true });
     console.log("WWWWWWWWWWWWWWW")
     console.log(post)
+    // console.log(userData)
+    // const user = userData.get({ plain: true });
 
     res.render('post', {
       ...post,
+      // user,
       logged_in: req.session.logged_in
     }); 
   } catch (err) {

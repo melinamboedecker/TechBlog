@@ -5,6 +5,17 @@ const newFormHandler = async (event) => {
     //get post ID to use when creating new comment
     const postId = document.querySelector('#comment-content').getAttribute('post_id');
 
+    //try to get username here
+    // const commentUserName = await fetch('/api/comments/:id', {
+    //   method: 'GET',
+    //   body: JSON.stringify({ name }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
+    // console.log('LOOK HERE FOR commentUserName')
+    // console.log(commentUserName);
+    // console.log('LOOK UP FOR commentUserName')
 
     if (content) {
       const response = await fetch(`/api/comments`, {
