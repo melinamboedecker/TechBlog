@@ -33,6 +33,20 @@ const newFormHandler = async (event) => {
       }
     }
   };
+
+
+const updateButtonHandler = async (event) => {
+  event.preventDefault();
+  console.log('you are in the update post button')
+  if (event.target.hasAttribute('data-id')) {
+    
+    const id = window.location.pathname.split('/')[2];
+    console.log(id)
+    document.location.replace(`/api/posts/update/${id}`)
+  } else {
+    alert('Cannot update post');
+  };
+}
   
 //   const delButtonHandler = async (event) => {
 //     if (event.target.hasAttribute('data-id')) {
@@ -49,10 +63,14 @@ const newFormHandler = async (event) => {
 //       }
 //     }
 //   };
+
+document
+  .querySelector('.update-post-form')
+  .addEventListener('click', updateButtonHandler);
   
-  document
-    .querySelector('.new-comment-form')
-    .addEventListener('submit', newFormHandler);
+document
+  .querySelector('.new-comment-form')
+  .addEventListener('submit', newFormHandler);
   
 //   document
 //     .querySelector('.post-list')

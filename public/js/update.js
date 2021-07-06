@@ -3,7 +3,7 @@ const updateFormHandler = async (event) => {
   
     const title = document.querySelector('#post-title').value.trim();
     const content = document.querySelector('#post-content').value.trim();
-    var postId = window.location.pathname.split('/')[4];
+    const postId = window.location.pathname.split('/')[4];
 
     console.log(title);
     console.log(content);
