@@ -4,6 +4,8 @@
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
 </div>
 
+
+{{#if current_users_post}}
 <form class="form update-post-form">
   <div class="col-md-4">
       <div class="form-goup">
@@ -11,6 +13,9 @@
       </div>
   </div>
 </form>
+{{/if}}
+
+
       <br><br><br><br>
 
 {{!-- {{#each comments as |comment|}} --}}
@@ -33,3 +38,6 @@
 
 
   <script src="/js/post.js"></script>
+  {{#if current_users_post}}
+  <script src="/js/updatebutton.js"></script>
+  {{/if}}

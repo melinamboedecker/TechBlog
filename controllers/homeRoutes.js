@@ -63,11 +63,12 @@ router.get('/', async (req, res) => {
 //when individual post is selected
 router.get('/posts/:id', withAuth, async (req, res) => {
   try {
+    // const currentUser = await User.findById(req.params.id)
     const postData = await Post.findByPk(req.params.id, {
             include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['name', 'id'],
         },
         {
             model: Comment,
@@ -97,13 +98,36 @@ router.get('/posts/:id', withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
     console.log("WWWWWWWWWWWWWWW")
     console.log(post)
+    console.log('post user id below')
+    console.log(post.user_id)
+    console.log('current user id below')
+    console.log(req.session.user_id)
+
+    const postUserId = post.user_id
+    const currentUserId = req.session.user_id
+    var isUsersPost;
+
+    function usersPost (postUser, currentUser) {
+      if (postUser === currentUser) {
+        isUsersPost = true;
+      } else {
+        isUsersPost = false
+      }
+    }
+    usersPost(post.user_id, req.session.user_id)
+
+    console.log('current users post?')
+    console.log(isUsersPost)
+
     // console.log(userData)
     // const user = userData.get({ plain: true });
 
     res.render('post', {
       ...post,
       // user,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      current_user: req.session.user_id,
+      current_users_post: isUsersPost
     }); 
   } catch (err) {
     res.status(500).json(err);
