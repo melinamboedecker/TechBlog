@@ -16,3 +16,7 @@ header, .post:not(:last-child) {
     color: #065b83;
     text-decoration: underline;
   }
+
+  .jumbotron {
+    color: #04354d;
+  }

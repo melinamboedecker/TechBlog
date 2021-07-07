@@ -4,8 +4,7 @@ require('dotenv').config();
 let sequelize;
 
 if (process.env.DATABASE_URL) {
-  sequelize = new Sequelize(process.env.DATABASE_URL||
-    `postgres://postgres:w2w2@localhost:5432/d2og1udldnpl0h`, ,
+  sequelize = new Sequelize(process.env.DATABASE_URL,
     {
       logging: false, 
       ssl: { rejectUnauthorized: false }
