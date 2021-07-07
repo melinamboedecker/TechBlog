@@ -22,9 +22,13 @@ This is an application for a blog where developers can publish and comment on po
 ## Usage: 
 From the homepage you can view post titles with who posted them and when. To view the contents of a post or make comments you must log in. If you are not yet registered, the login page has a separate section where you can sign up. Once logged in you will see your dashboard where you can create a new post, and delete any posts you have previously created. When you go to the homepage you can view all post titles, just click on the one you want to read. After you have clicked on a post, there is a section where you can add a comment.  If you are viewing your own post, there is a button which will take you to a form to make any updates to your post. 
 
-![Screenshot]()
+![Screenshot](public\assets\techblogscreenshot1.png)
 
-![Screenshot]()
+![Screenshot](public\assets\techblogscreenshot2.png)
+
+![Screenshot](public\assets\techblogscreenshot3.png)
+
+![Screenshot](public\assets\techblogscreenshot4.png)
 
 ## License: 
 Licensed under the [MIT](https://opensource.org/licenses/MIT) license. 
