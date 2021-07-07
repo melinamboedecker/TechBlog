@@ -19,7 +19,9 @@ const hbs = exphbs.create({ helpers });
 //configure and link sesion object with sequelize store
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    maxAge: 600000
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
