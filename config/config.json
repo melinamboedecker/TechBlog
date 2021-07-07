@@ -1,12 +1,12 @@
 {
     "development": {
       "database": "projectdb",
-      "host": "52.87.225.22",
+      "host": "127.0.0.1",
       "dialect": "postgres"
     },
     "test": {
       "database": "projectdb",
-      "host": "52.87.225.22",
+      "host": "127.0.0.1",
       "dialect": "postgres"
     },
     "production": {
